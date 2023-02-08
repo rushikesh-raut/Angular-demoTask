@@ -1,7 +1,7 @@
-<div style=" margin: auto; width: 50%;">
+<div style=" margin: auto; width: 50%;"><br>
 
-  <button mat-raised-button color="primary" (click)="exportexcel()">Export to Excel</button>&nbsp;&nbsp;
-
+  <button mat-raised-button color="accent" (click)="importexcel()"> <i class="bi bi-download"></i>  Export to Excel </button>&nbsp;
+  
   
   <div class="mat-elevation-z8">
     
@@ -13,7 +13,7 @@
 
       <thead>
         <tr>
-          <th>Code</th>
+          <th>UserCode</th>
           <th>Name</th>
           <th>Email</th>
           <th>Action</th>
@@ -27,8 +27,7 @@
           <td>{{item.name}}</td>
           <td>{{item.email}}</td>
 
-          <td><button mat-raised-button color="primary" (click)="edit(item)">Edit</button></td> || <br>
-
+          <td><button mat-button color="warn" (click)="edit(item)">Edit</button></td>  <br>
         </tr>
       </tbody>
       <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons aria-label="Select page of periodic elements">
@@ -40,27 +39,27 @@
   </div>
 </div>
 
-
-
-<div class="card">
-  <h5 style="text-align: center;">** Form **</h5>
-  <form id="hello" [formGroup]="employee"><br>
-    <div class="mb-2" appearance="fill">
-    <label class="user">code</label>:
-    <input type="number" class="form-control"  formControlName="code"><br><br>
-    </div>
-    <div class="mb-2">
-    <label class="user">Name</label>:
-    <input type="text" class="form-control"  formControlName="name"><br><br>
-    </div>
-    <div class="mb-2">
-    <label class="user">email</label>:
-    <input type="text" class="form-control"  formControlName="email"><br><br>
+<div class="container ">
+<div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded" >
+  <div class="card-body">
+    <h5> User Form</h5><hr>
+    <form id="hello" [formGroup]="Form"><br>
+      <div class="mb-2" appearance="fill">
+      <label class="user">Usercode</label>:
+      <input type="number" class="form-control"  formControlName="code"><br>
+      </div>
+      <div class="mb-2">
+      <label class="user">Name</label>:
+      <input type="text" class="form-control"  formControlName="name"><br>
+      </div>
+      <div class="mb-2">
+      <label class="user">email</label>:
+      <input type="text" class="form-control"  formControlName="email"><br>
+  </div>
+    </form>
+    <button mat-raised-button color="primary" [disabled]="!Form.valid" (click)="add()">Submit</button>
+  </div>
 </div>
-  </form>
-  <button mat-raised-button color="accent" [disabled]="!employee.valid" (click)="update()">submit form</button>
-
-  
 </div>
 
 

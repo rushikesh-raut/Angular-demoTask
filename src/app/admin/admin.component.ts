@@ -47,7 +47,7 @@ displayedColumns: string[] = ['code', 'name', 'email'];
    session:any
  
   constructor(private service:ApiService , private form:FormBuilder ) { }
-  employee = this.form.group({
+  Form= this.form.group({
     code : ['',[Validators.required]],
     name : ['',[Validators.required]],
    
@@ -66,8 +66,8 @@ searchText:any;
     {
     
     "code": 1011,
- "name": "arun",
-  "email": "arun@gmail.com",
+ "name": "rushu",
+  "email": "rushu@gmail.com",
     
     
     },
@@ -75,8 +75,8 @@ searchText:any;
     {
     
     "code":1111,
-     "name": "sakshi",
-       "email" : "sakshi@gmail.com",
+     "name": "akshu",
+       "email" : "akshu@gmail.com",
     
     },
     
@@ -84,8 +84,8 @@ searchText:any;
     
     "code": 1112,
     
-    "name": "sahil",
-         "email": "sahil@gmail.com",
+    "name": "ravi",
+         "email": "ravi@gmail.com",
   
         },
     
@@ -93,9 +93,9 @@ searchText:any;
     
     "code": 1113,
     
-    "name": "viya ",
+    "name": "jay ",
      
-    "email": "viya1234@gmail.com",
+    "email": "jay1234@gmail.com",
     
     },
     
@@ -103,16 +103,16 @@ searchText:any;
     
     "code":1114,
     
-    "name": "anita",
+    "name": "gaurav",
     
-    "email": "anita@gmail.com",
+    "email": "gaurav@gmail.com",
 
     
     
     }
     
     ]
-    exportexcel(): void
+    importexcel(): void
     {
       
       let element = document.getElementById('excel-table');
@@ -130,15 +130,15 @@ searchText:any;
     
  
     edit(item:any){
-      this.employee.patchValue(item)
+      this.Form.patchValue(item)
       
     }
-    update(){
+    add(){
       this.userList.push({
-        code: this.employee.value.code,
-        name : this.employee.value.name,
+        code: this.Form.value.code,
+        name : this.Form.value.name,
         
-        email : this.employee.value.email,
+        email : this.Form.value.email,
         
       })
       let data={code:'',name:'',email:''};
@@ -147,29 +147,29 @@ localStorage.setItem;{ "session";JSON.stringify(data)}
     }
     submit(){
       alert('you have succesfully submit your form')
-      this.employee.reset()
+      this.Form.reset()
     }    
     
     student =[
       {
-        name:'seema',
-        collage:'siem',
-        city:'nashik'
+        name:'Rushi',
+        collage:'HVPM Clg ',
+        city:'Wardha'
       },
       {
-        name:'shamala',
-        collage:'sips',
+        name:'Ravi',
+        collage:'Model Clg',
         city:'pune'
       },
       {
-        name:'varsha',
-        collage:'sitrc',
-        city:'nashik'
+        name:'Akahay',
+        collage:'Sipna Clg',
+        city:'Nagpur'
       },
       {
-        name:'sara',
-        collage:'siem',
-        city:'pune'
+        name:'Aashu',
+        collage:'Yashwant Clg',
+        city:'Arvi'
       }
     ]
     search(event:Event){
@@ -192,7 +192,6 @@ localStorage.setItem;{ "session";JSON.stringify(data)}
 
 
 //   }
-
       
     
 }
